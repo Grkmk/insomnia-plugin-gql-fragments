@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-gql-fragments",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An Insomnia Plugin that hacks Insomnia to allow use of fragments.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,8 +15,21 @@
   },
   "insomnia": {
     "name": "gql-fragment",
-    "displayName": "Support Gql Fragment",
-    "description": "Some support for GQL fragments"
+    "displayName": "GQL Fragment Semi Support with tags.",
+    "description": "Hack into Insomnia to support GQL Fragments. Use the body of a new empty request and add the fragment to the body. Where you want to use fragment in gql the following : {% fragment 'req_12345' %}. Fragments can be duplicated or never used in the request body, they will be removed in the request hooks.",
+    "images": {
+      "icon": "gql.svg",
+      "cover": "gql.svg"
+    },
+    "publisher": {
+      "name": "Martin Bee",
+      "icon": "https://pickaface.net/gallery/avatar/unr_random_160817_0304_2mvqp69.png"
+    },
+    "applications": {
+      "designer": "*",
+      "core": "*",
+      "cli": "*"
+    }
   },
   "repository": {
     "type": "git",
