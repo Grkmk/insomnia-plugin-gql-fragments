@@ -1,0 +1,50 @@
+{
+  "name": "insomnia-plugin-gql-fragments",
+  "version": "1.0.0",
+  "description": "An Insomnia Plugin that hacks Insomnia to allow use of fragments.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ./src --ext .ts",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest",
+    "prepare": "husky install",
+    "prepublishOnly": "rm -rf ./dist/ && npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "insomnia": {
+    "name": "gql-fragment",
+    "displayName": "Support Gql Fragment",
+    "description": "Some support for GQL fragments"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/to-update"
+  },
+  "files": [
+    "/dist"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/insomnia-plugin-gql/issues"
+  },
+  "homepage": "https://github.com/insomnia-plugin-gql",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "jest": "^27.0.1",
+    "prettier": "^2.3.0",
+    "ts-jest": "^27.0.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "graphql": "^15.5.0"
+  }
+}
