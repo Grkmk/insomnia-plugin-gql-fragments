@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-gql-fragments",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An Insomnia Plugin that hacks Insomnia to allow use of fragments.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,17 +20,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/to-update"
+    "url": "git+https://github.com/MartinBeuriot/insomnia-plugin-gql-fragments"
   },
   "files": [
     "/dist"
   ],
-  "author": "",
+  "author": "Martin Bee",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/insomnia-plugin-gql/issues"
+    "url": "hhttps://github.com/MartinBeuriot/insomnia-plugin-gql-fragments/issues"
   },
-  "homepage": "https://github.com/insomnia-plugin-gql",
+  "homepage": "https://github.com/MartinBeuriot/insomnia-plugin-gql-fragments",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
