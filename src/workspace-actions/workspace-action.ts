@@ -1,24 +1,25 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-enum InsomniaExportResourceType {
-  FOLDER = 'request_group',
-  REQUEST = 'request',
-  // Anything else like unit tests but not needed
+import { RequestHookContext } from '../insomnia/types/request-hook-context'
+import { askFolderDirectory } from '../sync/ask-folder'
+import { InsomniaExport, InsomniaExportResourceType } from '../sync/export-inso'
+
+export const exportGQL = {
+  label: 'Export Gql queries ...',
+  icon: 'fa-exchange',
+  action: async (context: unknown, models: unknown): Promise<void> => exportGqlQueries(context, models),
 }
 
-interface InsomniaExport {
-  resources: {
-    _id: string
-    parentId: string
-    name: string
-    description: string
-    _type: InsomniaExportResourceType
-  }[]
+export const changeSyncFolder = {
+  label: 'Update Sync Folder',
+  icon: 'fa-exchange',
+  action: async (context: RequestHookContext, _models: unknown): Promise<string | null> => await askFolderDirectory(context),
 }
 
+/** OLD Folder Selection to export GQL from Insomnia Workspace*/
 const folderSelected = (folderSelected: string, _json: InsomniaExport) => {
   console.log('folder: ' + folderSelected)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const exportGqlQueries = async (context: any, models: any) => {
   const exportJson = await context.data.export.insomnia({
     includePrivate: false,
@@ -44,10 +45,4 @@ const exportGqlQueries = async (context: any, models: any) => {
       folderSelected(e.value, json)
     },
   })
-}
-
-export const exportGQL = {
-  label: 'Export Gql queries ...',
-  icon: 'fa-exchange',
-  action: async (context: unknown, models: unknown): Promise<void> => exportGqlQueries(context, models),
 }

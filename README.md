@@ -1,6 +1,6 @@
 # insomnia-plugin-gql-fragments
 
-An [Insomnia](https://insomnia.rest) Plugin that saves values from responses into variables.
+An [Insomnia](https://insomnia.rest) Plugin Hack into Insomnia to support GQL Fragments. Use the body of a new empty request and add the fragment to the body. Where you want to use fragment in gql the following : {% fragment 'req_12345' %}. Fragments can be duplicated or never used in the request body, they will be removed in the request hooks..
 
 ## Use-Case
 

@@ -18,3 +18,12 @@ export const filterJsonAndTestGQL = (query: Body): GQL | null => {
   }
   return null
 }
+
+/**
+ * Remove fragment and other insomnia non required stuff for files
+ * @param gql
+ * @returns
+ */
+export const filterGQL = (gql: GQL): string => {
+  return gql.query.replace(/{%.*%}/g, '').trim() + '\n'
+}

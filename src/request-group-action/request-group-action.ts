@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
+import { syncSuccessful, getSyncDirOrAsk } from '../sync/ask-folder'
+import { flowSync } from '../sync/sync-files'
+
+/**
+ * Insomnia, click on folder
+ */
 export const generateGQLFile = {
-  label: 'Sync insomnia file to .graphql',
+  label: 'Sync insomnia to repo gql',
   icon: 'fa-exchange',
   action: async (
     context: any,
@@ -10,10 +17,10 @@ export const generateGQLFile = {
       requests: Array<any>
     },
   ): Promise<void> => {
-    const resp = await context.app.showSaveDialog()
-    console.log(resp)
-    console.log(context)
-    console.log(obj.requestGroup)
-    console.log(obj.requests[0])
+    const folder = await getSyncDirOrAsk(context)
+    if (folder) {
+      if (await flowSync(context, obj.requestGroup, folder)) syncSuccessful()
+      // else syncUnSuccessful()
+    }
   },
 }

@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-gql-fragments",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "An Insomnia Plugin that hacks Insomnia to allow use of fragments.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -58,6 +58,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "electron": "^13.0.1",
     "graphql": "^15.5.0"
   }
 }
