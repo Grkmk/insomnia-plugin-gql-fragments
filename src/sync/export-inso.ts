@@ -16,5 +16,6 @@ export interface InsomniaExportResource {
   name: string
   description: string
   _type: InsomniaExportResourceType
+  type: string
   body: Body
 }

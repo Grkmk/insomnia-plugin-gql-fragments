@@ -5,6 +5,7 @@
  */
 import fs from 'fs'
 import os from 'os'
+
 export const GQLTag = {
   name: 'gql',
   displayName: 'GQL',

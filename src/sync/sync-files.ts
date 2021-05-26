@@ -77,6 +77,13 @@ const exportGqlQueries = async (context: RequestHookContext, requestGroup: Insom
 
   const fileMap = new Map<string, InsomniaExportResource[]>()
   const result = buildMap(requestGroup, path, fileMap, json.resources)
+
+  // In case that the call wasn't made from a folder but a single request
+  // Also in that case type contains 'request' and not _type
+  if (requestGroup.type && requestGroup.type.toLocaleLowerCase() === InsomniaExportResourceType.REQUEST && result.size == 0) {
+    result.set(path, [requestGroup])
+  }
+
   await writeFile(result, rootFolder)
 }
 

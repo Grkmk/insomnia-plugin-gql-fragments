@@ -1,11 +1,5 @@
 import { TemplateActionContext, TemplateRunContext } from './template-context'
-import {
-  TemplateTagStringArg,
-  TemplateTagNumberArg,
-  TemplateTagModelArg,
-  TemplateTagEnumArg,
-  TemplateTagBooleanArg,
-} from './template-tag-arg'
+import { TemplateTagStringArg, TemplateTagNumberArg, TemplateTagModelArg, TemplateTagEnumArg, TemplateTagBooleanArg } from './template-tag-arg'
 
 export type LiveDisplayArg = {
   quotedBy: string
@@ -22,9 +16,7 @@ export type TemplateTag = {
   liveDisplayName?: (args: LiveDisplayArg[]) => string | undefined
   validate?: (value: unknown) => string | undefined
   priority?: number
-  args?: Array<
-    TemplateTagStringArg | TemplateTagNumberArg | TemplateTagModelArg | TemplateTagEnumArg | TemplateTagBooleanArg
-  >
+  args?: Array<TemplateTagStringArg | TemplateTagNumberArg | TemplateTagModelArg | TemplateTagEnumArg | TemplateTagBooleanArg>
   actions?: Array<{
     name: string
     icon?: string

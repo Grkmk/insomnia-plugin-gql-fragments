@@ -1,6 +1,21 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { RequestAction } from '../insomnia/types/request-action'
+import { RequestHookContext } from '../insomnia/types/request-hook-context'
+import { getSyncDirOrAsk, syncSuccessful } from '../sync/ask-folder'
+import { flowSync } from '../sync/sync-files'
 
+export const generateSingleGQLFile = {
+  label: 'Sync insomnia to repo gql',
+  icon: 'fa-exchange',
+  action: async (context: RequestHookContext, obj: any): Promise<void> => {
+    const folder = await getSyncDirOrAsk(context)
+    if (folder) {
+      if (await flowSync(context, obj.request, folder)) syncSuccessful()
+      // else syncUnSuccessful()
+    }
+  },
+}
 /**
  * Insomnia UI ActionRequest
  */

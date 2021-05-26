@@ -2,7 +2,7 @@ export type TemplateTagArg = {
   displayName: string
   description?: string
   defaultValue: string | number | boolean
-  type: 'string' | 'number' | 'enum' | 'model' | 'boolean'
+  type: 'string' | 'number' | 'enum' | 'model' | 'boolean' | 'file'
 }
 
 export type TemplateTagStringArg = TemplateTagArg & {
